@@ -48,7 +48,7 @@ public class prm3 {
     }
 
     public static void main(String[] args) {
-        String sentence = "the quick brown fox jumps over the lazy dog";
+        String sentence = "The man and Cat will be come to the party - Enjoy coding niroshan";
         List<String> sortedWords = sortWordsByFrequency(sentence);
         System.out.println(sortedWords);
     }
