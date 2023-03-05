@@ -8,26 +8,48 @@ import javax.swing.plaf.synth.SynthLookAndFeel;
 For example, given the sentence "the quick brown fox jumps over the lazy dog", your function should return the list ["the", "over", "brown", "fox", "jumps", "lazy", "dog", "quick"] 
 because "the" occurs twice, while all other words occur only once.
  */
+import java.util.*;
+
 public class prm3 {
-    
 
-   
+    public static List<String> sortWordsByFrequency(String sentence) {
 
-    public static String sortedOder(String inpt){
-        
-        String answer = " ";
+        // Split the sentence into individual words
+        String[] words = sentence.split(" ");
 
-        for (int i=0; i<inpt.length(); i++) {
-            System.out.println(i);
+        // Create a HashMap to store the frequency of each word
+        Map<String, Integer> wordCount = new HashMap<String, Integer>();
+
+        // Iterate over each word, incrementing its count in the HashMap
+        for (String word : words) {
+            if (wordCount.containsKey(word)) {
+                wordCount.put(word, wordCount.get(word) + 1);
+            } else {
+                wordCount.put(word, 1);
+            }
         }
 
-        return answer;
+        // Create a List from the HashMap and sort it in descending order based on
+        // frequency
+        List<Map.Entry<String, Integer>> wordList = new ArrayList<Map.Entry<String, Integer>>(wordCount.entrySet());
+        Collections.sort(wordList, new Comparator<Map.Entry<String, Integer>>() {
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return (o2.getValue()).compareTo(o1.getValue());
+            }
+        });
+
+        // Create a List of words sorted by frequency and return it
+        List<String> sortedWords = new ArrayList<String>();
+        for (Map.Entry<String, Integer> entry : wordList) {
+            sortedWords.add(entry.getKey());
+        }
+
+        return sortedWords;
     }
+
     public static void main(String[] args) {
-        String senrtence = "I am sentence Baced on the proublem ";
-        sortedOder(senrtence);
-        
-
-
+        String sentence = "the quick brown fox jumps over the lazy dog";
+        List<String> sortedWords = sortWordsByFrequency(sentence);
+        System.out.println(sortedWords);
     }
 }
