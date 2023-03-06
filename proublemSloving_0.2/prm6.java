@@ -5,8 +5,23 @@
 
 
 public class prm6 {
-    
-    public static void main(String[] args) {
+
+    public static int secondSmallest(List<Integer> list) {
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
         
+        for (int i = 0; i < list.size(); i++) {
+            int num = list.get(i);
+            if (num < smallest) {
+                secondSmallest = smallest;
+                smallest = num;
+            } else if (num < secondSmallest && num != smallest) {
+                secondSmallest = num;
+            }
+        }
+        
+        return secondSmallest == Integer.MAX_VALUE ? -1 : secondSmallest;
     }
+
+    
 }
