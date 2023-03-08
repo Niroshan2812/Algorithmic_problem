@@ -1,3 +1,5 @@
+import java.util.List;
+
 /*
  * You have been given a list of integers. Write a Java function to return the second smallest integer in the list. 
  * If there is no second smallest integer (e.g., all the integers in the list are the same), then the function should return -1.
