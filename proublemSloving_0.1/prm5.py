@@ -2,9 +2,12 @@
 #The order of the elements in the new list should be the same as the order of the long strings in the original list.
 #For example, if the input list is ["apple", "cat", "dog", "banana", "elephant"], the program should return the list ["banana", "elephant"]
 
-userInput = input("enter String using comma ")
-newStringArray = []
-for i in userInput.split(','):
-    if len(i)>5:
-        newStringArray.append(i)
-print(newStringArray)
+def printNameAndScl(name,school):
+    print ("My Name is :- ", name)
+    print ("My School is :- ", school)
+
+
+name = "Niroshan Dharmasiri"
+school = "R/Dharmaloka Navodya School"
+
+printNameAndScl(name,school)
